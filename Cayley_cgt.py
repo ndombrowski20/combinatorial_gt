@@ -6,6 +6,7 @@ matplotlib.use('agg')
 import matplotlib.pyplot as plt
 from graphviz import Digraph
 
+
 class Cayley:
     # the purpose of this class is to store the data from previously
     # generated Groups and produce Cayley graphs from that data. In fact,
@@ -171,7 +172,7 @@ class Cayley:
         print(graphviz_output.source)
         # graphviz_output.render('test_output/group_cayley_output.gv')
 
-    def for_saving(self):
+    def for_saving(self, imagename, filename):
         # make a method for saving the image and the data on the image rather than outputting it to the console
 
         # also include the memory and the runtime, and maybe even the group so that it can't be confused.
@@ -200,9 +201,9 @@ class Cayley:
 
         nx.draw(self._graph, pos, **options, labels=word_labels, edge_color=colors)
 
-        plt.savefig("savefigure.png")
+        plt.savefig("products/" + imagename + ".png")
 
-        numbers = open("savefile.txt", 'w')
+        numbers = open("products/" + filename + ".txt", 'w')
 
         # numbers.write(str( + " are the generators\n"))
         # numbers.write(str( + " are the relators\n"))
