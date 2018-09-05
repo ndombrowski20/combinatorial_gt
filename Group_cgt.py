@@ -1,7 +1,7 @@
 from WordTrie_cgt import WordTrie
 from Word_cgt import Word
 from Letter_cgt import Letter
-import time
+import time, os
 
 
 class Group:
