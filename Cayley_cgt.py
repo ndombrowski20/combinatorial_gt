@@ -58,19 +58,19 @@ class Cayley:
                         break
 
             i = i + 1
-            print(str(i) + " out of " + str(len(elements)) + " completed \n")
+            # print(str(i) + " out of " + str(len(elements)) + " completed \n")
 
-        print(str(self._graph.number_of_nodes()) + " is the number of nodes")
-        print(str(self._graph.number_of_edges()) + " is the number of edges")
+        # print(str(self._graph.number_of_nodes()) + " is the number of nodes")
+        # print(str(self._graph.number_of_edges()) + " is the number of edges")
 
-        pickel = input("Do you want me to pickle this graph? Y/N ")
-        if pickel.lower() == 'y':
-            self.pickle_me()
-
-        group_p = input("Do you want me to pickle this group? Y/N ")
-        if group_p.lower() == "y":
-            self.pickle_my_group(a_group)
-
+        # pickel = input("Do you want me to pickle this graph? Y/N ")
+        # if pickel.lower() == 'y':
+        #     self.pickle_me()
+        #
+        # group_p = input("Do you want me to pickle this group? Y/N ")
+        # if group_p.lower() == "y":
+        #     self.pickle_my_group(a_group)
+        #
         self._constr_time = round(time.time() - construction_start, 3)
 
     def read_pickle(self, a_str):
@@ -135,7 +135,6 @@ class Cayley:
     def pickle_me(self):
         input_name = str(input("What do you want me to name the pickle file "))
         filename = 'pickles/' + input_name + ".txt"
-        print('hello')
         pickle.dump(self._graph, open(filename, 'wb'))
         print("saved to: "+filename)
 
@@ -150,6 +149,7 @@ class Cayley:
         print("saved to: " + filename)
 
     def export_gv(self):
+        # this program is still a work in progress. No guarantee that it will work
         if self._paranoid:
             if not self._graph.nodes():
                 raise Exception("I need a graph first")
@@ -162,14 +162,12 @@ class Cayley:
 
         edges = self._graph.edges()
         colors = [self._graph[u][v]['color'] for u, v in edges]
-        print(colors)
         i = 0
         for (u, v) in edges:
-            print(i)
             graphviz_output.edge(u.return_word_str(), v.return_word_str(), colors[i])
             i = i+1
 
-        print(graphviz_output.source)
+        # print(graphviz_output.source)
         # graphviz_output.render('test_output/group_cayley_output.gv')
 
     def for_saving(self, imagename, filename):
