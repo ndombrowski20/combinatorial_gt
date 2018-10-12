@@ -25,4 +25,4 @@ g2_cayley = Cayley()
 
 g2_cayley.read_newgraph(g2, 4, 12)
 
-g2_cayley.for_saving('dicayley_g2_10', 'info_dicayley_g2_10')
+g2_cayley.for_saving('dicayley_g2_12_1', 'info_dicayley_g2_12_1')
